@@ -1,9 +1,6 @@
 from market import app
 from flask import render_template
-try:
-    from market.models import Item
-except ImportError:
-    from .models import Item
+from market.models import Item
 
 @app.route('/')
 @app.route('/home')
