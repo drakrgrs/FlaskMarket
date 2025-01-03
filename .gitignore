@@ -1,4 +1,4 @@
-# Ignore environment variables file
+# .gitignore  
 .env
 
 # Ignore Python cache files
