@@ -18,6 +18,21 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        <button
+          type="button"
+          class="m1-2 mb-1 close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+
       <a class="navbar-brand" href="#">Flask Market</a>
       <button
         class="navbar-toggler"
@@ -50,6 +65,7 @@
         </ul>
       </div>
     </nav>
+
     {% block content %} {% endblock %}
     <!-- Future Content here -->
 
