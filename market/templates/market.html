@@ -21,15 +21,25 @@ the parent template for this file.
       </thead>
       <tbody>
         <!-- Your rows inside the table HERE: -->
-        {% for item in items %}
+        {% for item in items %} {% include 'includes/items_modals.html' %}
         <tr>
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.barcode }}</td>
           <td>${{ item.price }}</td>
           <td>
-            <button class="btn btn-outline btn-info">More Info</button>
-            <button class="btn btn-outline btn-success">
+            <button
+              class="btn btn-outline btn-info"
+              data-toggle="modal"
+              data-target="#Modal-MoreInfo-{{ item.id }}"
+            >
+              More Info
+            </button>
+            <button
+              class="btn btn-outline btn-success"
+              data-toggle="modal"
+              data-target="#Modal-PurchaseConfirm-{{ item.id }}"
+            >
               Purchase this Item
             </button>
           </td>
@@ -38,6 +48,9 @@ the parent template for this file.
       </tbody>
     </table>
   </div>
-  <div class="col-4">Cart</div>
+  <div class="col-4">
+    <h2>Owned Items</h2>
+    <p>Click on sell item to return an item back to the Market.</p>
+  </div>
 </div>
 {% endblock %}
