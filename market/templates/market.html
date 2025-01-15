@@ -54,6 +54,7 @@ the parent template for this file.
     <br />
     <div class="row">
       {% for owned_item in owned_items %}
+      {% include 'includes/owned_items_modals.html' %}
       <div class="col-md-6">
         <div style="margin-bottom: 5px" class="card text-center bg-dark">
           <div class="card-body">
